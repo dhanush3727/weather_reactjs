@@ -76,7 +76,7 @@ const Weather = () => {
               </div>
             </div>
             <div className="element">
-              <img src="" alt="" className="icon" />
+              <img src={wind_icon} alt="" className="icon" />
               <div className="data">
                 <div className="wind-rate">---</div>
                 <div className="text">Wind Speed</div>
