@@ -1,15 +1,8 @@
 import React, { useState } from "react";
 import "./Weather.css";
-import clear_icon from "../Assets/clear.png";
-import cloud_icon from "../Assets/cloud.png";
-import drizzle_icon from "../Assets/drizzle.png";
 import humidity_icon from "../Assets/humidity.png";
-import rain_icon from "../Assets/rain.png";
 import search_icon from "../Assets/search.png";
-import snow_icon from "../Assets/snow.png";
 import wind_icon from "../Assets/wind.png";
-import thunderStorm_icon from "../Assets/thunderstorm.png";
-import mist_icon from "../Assets/mist.png";
 
 const Weather = () => {
   const api = {
@@ -18,7 +11,6 @@ const Weather = () => {
   };
   const [search, setSearch] = useState("");
   const [weather, setWeather] = useState({});
-  const [climate, setClimate] = useState(clear_icon);
 
   const searchCity = () => {
     try {
@@ -31,54 +23,6 @@ const Weather = () => {
     } catch (err) {
       console.log(err);
     }
-    // if (
-    //   weather.weather[0].icon === "01d" ||
-    //   weather.weather[0].icon === "01n"
-    // ) {
-    //   setClimate(clear_icon);
-    // } else if (
-    //   weather.weather[0].icon === "02d" ||
-    //   weather.weather[0].icon === "02n"
-    // ) {
-    //   setClimate(cloud_icon);
-    // } else if (
-    //   weather.weather[0].icon === "03d" ||
-    //   weather.weather[0].icon === "03n"
-    // ) {
-    //   setClimate(cloud_icon);
-    // } else if (
-    //   weather.weather[0].icon === "04d" ||
-    //   weather.weather[0].icon === "04n"
-    // ) {
-    //   setClimate(cloud_icon);
-    // } else if (
-    //   weather.weather[0].icon === "09d" ||
-    //   weather.weather[0].icon === "09n"
-    // ) {
-    //   setClimate(rain_icon);
-    // } else if (
-    //   weather.weather[0].icon === "10d" ||
-    //   weather.weather[0].icon === "10n"
-    // ) {
-    //   setClimate(rain_icon);
-    // } else if (
-    //   weather.weather[0].icon === "11d" ||
-    //   weather.weather[0].icon === "11n"
-    // ) {
-    //   setClimate(thunderStorm_icon);
-    // } else if (
-    //   weather.weather[0].icon === "13d" ||
-    //   weather.weather[0].icon === "13n"
-    // ) {
-    //   setClimate(snow_icon);
-    // } else if (
-    //   weather.weather[0].icon === "50d" ||
-    //   weather.weather[0].icon === "50n"
-    // ) {
-    //   setClimate(mist_icon);
-    // } else {
-    //   setClimate(clear_icon);
-    // }
   };
   return (
     <div className="container">
@@ -93,11 +37,8 @@ const Weather = () => {
           <img src={search_icon} alt="" />
         </div>
       </div>
-      {weather.main && weather.name && weather.wind !== "undefined" ? (
+      {typeof weather.main && weather.name && weather.wind !== "undefined" ? (
         <>
-          {/* <div className="weather-img">
-            <img src={climate} alt="" />
-          </div> */}
           <div className="weather-temp">{weather.main.temp}°C </div>
           <div className="weather-location">{weather.name}</div>
           <div className="data-container">
